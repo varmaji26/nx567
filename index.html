@@ -3,138 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NX567 - Download App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>NX567 - Official Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --secondary: #3b82f6;
+            --accent: #facc15;
+            --bg-dark: #06131f;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            background: radial-gradient(circle at top right, #112240, #06131f);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Animated Background Dots */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        /* Logo Animation */
+        .logo-box {
+            margin-top: 50px;
+            font-size: 60px;
+            filter: drop-shadow(0 0 15px var(--primary));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .nx-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(50px, 15vw, 100px);
+            margin: 10px 0;
+            background: linear-gradient(to right, #fff, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        }
+
+        .badge {
+            background: rgba(250, 204, 21, 0.15);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* Premium Download Button */
+        .download-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            margin: 30px 0;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.6);
+        }
+
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Shine effect on button */
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        /* Grid for Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: rgba(34, 197, 94, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .card-content b {
+            display: block;
+            font-size: 18px;
+            color: var(--accent);
+        }
+
+        .card-content span {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            opacity: 0.4;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .nx-title { font-size: 60px; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="logo-placeholder">🚀</div>
+    <div class="logo-box">🚀</div>
     
     <h1 class="nx-title">NX567</h1>
     
-    <div class="tagline">
-        दुनिया का सबसे सुरक्षित एप्लिकेशन
-    </div>
+    <div class="badge">🛡️ दुनिया का सबसे सुरक्षित ऐप</div>
     
-    <p class="sub-text">
-        Play up to <span class="highlight">Lacs Daily</span> with NX567 - Safe, Secure & Lightning Fast
+    <p style="max-width: 400px; padding: 0 20px; line-height: 1.6;">
+        Join India's most trusted platform. Play and Win <span style="color:var(--accent); font-weight:bold;">Lakhs Daily</span> with instant safety.
     </p>
 
-    <a href="NX567.apk" download="NX567.apk" class="apk">Download APK</a>
+    <a href="NX567.apk" download class="download-btn">
+        DOWNLOAD NOW
+    </a>
 
-    <div class="features-list">
-        <div class="feature-card">
-            <span class="feature-icon">🏆</span>
-            <div class="feature-text">
-                <b>Best Rates</b>
-                <span>Highest winning rates in the industry</span>
+    <div class="features-grid">
+        <div class="card">
+            <div class="icon-circle">💰</div>
+            <div class="card-content">
+                <b>Best Payouts</b>
+                <span>Get the highest winning returns daily.</span>
             </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-icon">🛡️</span>
-            <div class="feature-text">
-                <b>100% Safe</b>
-                <span>Secure transactions with end-to-end encryption</span>
+        <div class="card">
+            <div class="icon-circle">⚡</div>
+            <div class="card-content">
+                <b>Instant Pay</b>
+                <span>Withdrawals processed in under 60 seconds.</span>
             </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-icon">⚡</span>
-            <div class="feature-text">
-                <b>Fast Withdrawals</b>
-                <span>Instant transfer to your bank account</span>
+        <div class="card">
+            <div class="icon-circle">🔒</div>
+            <div class="card-content">
+                <b>Anti-Hack</b>
+                <span>Military-grade security for your data.</span>
             </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-icon">👥</span>
-            <div class="feature-text">
-                <b>24/7 Support</b>
-                <span>Always available to help you via chat or call</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="game-rates">
-        <h2>Game Rates</h2>
-        <p>Best winning rates in the market</p>
-        <div class="line"></div>
-        
-        <div class="rate-list">
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Single Digit</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹100</span>
-                </div>
-            </div>
-            
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Jodi Digit</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹1000</span>
-                </div>
-            </div>
-
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Single Pana</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹1500</span>
-                </div>
-            </div>
-
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Double Pana</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹3000</span>
-                </div>
-            </div>
-
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Triple Pana</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹7000</span>
-                </div>
-            </div>
-
-            <div class="rate-row">
-                <div class="game-info">
-                    <span class="game-icon">🎲</span>
-                    <span class="game-name">Half Sangam</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹15000</span>
-                </div>
-            </div>
-
-            <div class="rate-row special">
-                <div class="game-info">
-                    <span class="game-icon">👑</span>
-                    <span class="game-name">Full Sangam</span>
-                </div>
-                <div class="price-info">
-                    <span class="red">₹10</span> → <span class="green">₹1,00,000</span>
-                    <span class="badge">HIGHEST PAYOUT</span>
-                </div>
+        <div class="card">
+            <div class="icon-circle">📞</div>
+            <div class="card-content">
+                <b>24/7 VIP Help</b>
+                <span>Dedicated support manager for everyone.</span>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        © 2026 NX567. All Rights Reserved.
+    <footer>
+        © 2026 NX567 Entertainment Ltd. | Responsible Gaming
     </footer>
 
 </body>
