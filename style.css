@@ -1,0 +1,238 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #0f2a44, #06131f);
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+/* Logo and Title */
+.logo-placeholder {
+    font-size: 50px;
+    margin-top: 30px;
+    animation: floatLogo 3s infinite ease-in-out;
+}
+
+.nx-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 110px;
+    letter-spacing: 5px;
+    margin: 15px 0 5px;
+    background: linear-gradient(90deg, #fbbf24, #22c55e, #38bdf8, #ec4899);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glowMove 3s infinite alternate;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #facc15;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.sub-text {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.highlight {
+    color: #facc15;
+    font-weight: 600;
+}
+
+/* Download Button */
+.apk {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 20px 60px;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #22c55e, #3b82f6, #ec4899);
+    background-size: 300% 300%;
+    box-shadow: 0 0 35px rgba(34, 197, 94, 0.5);
+    animation: gradientMove 4s infinite, pulse 2s infinite;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.apk:hover { transform: scale(1.05); }
+
+/* Features Section */
+.features-list {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #facc15;
+    transform: scale(1.02);
+}
+
+.feature-icon {
+    font-size: 35px;
+    filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.5));
+}
+
+.feature-text b {
+    font-size: 18px;
+    color: #facc15;
+    display: block;
+}
+
+.feature-text span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Game Rates Section */
+.game-rates {
+    background: linear-gradient(180deg, #3b0764, #1e0533);
+    padding: 50px 20px;
+    border-radius: 40px;
+    margin: 60px 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.game-rates h2 {
+    font-size: 36px;
+    color: #fb923c;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.line {
+    width: 70px;
+    height: 3px;
+    background: #fb923c;
+    margin: 10px auto 35px;
+    border-radius: 10px;
+}
+
+.rate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rate-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 15px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #fb923c;
+    transition: 0.3s;
+}
+
+.rate-row:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(10px);
+}
+
+.game-info {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.game-icon { font-size: 24px; }
+.game-name { font-weight: 600; font-size: 18px; color: #fff; }
+
+.price-info { text-align: right; }
+.red { color: #ff7a7a; font-weight: bold; font-size: 14px; }
+.green { color: #22c55e; font-weight: bold; font-size: 20px; }
+
+.rate-row.special {
+    background: linear-gradient(90deg, #f59e0b, #ec4899);
+    border-left: 5px solid #fff;
+}
+
+.badge {
+    background: #000;
+    color: #facc15;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: block;
+    margin-top: 5px;
+}
+
+.footer {
+    margin-bottom: 40px;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+/* Animations */
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.1); }
+}
+
+@keyframes glowMove {
+    from { text-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }
+    to { text-shadow: 0 0 35px rgba(236, 72, 153, 0.8); }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .nx-title { font-size: 65px; }
+    .rate-row { flex-direction: column; gap: 5px; text-align: center; }
+    .game-info { flex-direction: column; gap: 2px; text-align: center; }
+    .price-info { text-align: center; }
+    .feature-card { flex-direction: column; text-align: center; gap: 10px; }
+}
