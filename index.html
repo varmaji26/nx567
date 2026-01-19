@@ -1,342 +1,313 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Kohinoor Devanagari'}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    span.s1 {font: 12.0px 'Apple Color Emoji'}
-    span.s2 {font: 12.0px Helvetica}
-    span.s3 {font: 12.0px 'Lucida Grande'}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NX567 - Download App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #0f2a44, #06131f);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: moveBg 20s linear infinite;
+            z-index: -1;
+        }
+        @keyframes moveBg {
+            from { background-position: 0 0; }
+            to { background-position: 400px 400px; }
+        }
+        .logo-placeholder {
+            font-size: 50px;
+            margin-top: 30px;
+            animation: floatLogo 3s infinite ease-in-out;
+        }
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+        .nx-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 72px;
+            letter-spacing: 5px;
+            margin: 15px 0 5px;
+            background: linear-gradient(90deg, #fbbf24, #22c55e, #38bdf8, #ec4899);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glowMove 3s infinite alternate;
+        }
+        @keyframes glowMove {
+            from { text-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }
+            to { text-shadow: 0 0 35px rgba(236, 72, 153, 0.8); }
+        }
+        .apk {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(90deg, #22c55e, #3b82f6, #ec4899);
+            background-size: 300% 300%;
+            box-shadow: 0 0 35px rgba(34, 197, 94, 0.5);
+            animation: gradientMove 4s infinite, pulse 2s infinite;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .apk:hover { transform: scale(1.05); }
+        .features-list {
+            max-width: 600px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+            transition: 0.3s;
+            animation: smoothFloat 3s infinite ease-in-out;
+        }
+        @keyframes smoothFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .feature-card:nth-child(1) { animation-delay: 0s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.8s; }
+        .feature-card:nth-child(4) { animation-delay: 1.2s; }
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #facc15;
+            transform: scale(1.02);
+        }
+        .feature-icon {
+            font-size: 35px;
+            filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.5));
+        }
+        .feature-text b {
+            font-size: 18px;
+            color: #facc15;
+            display: block;
+        }
+        .feature-text span {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .game-rates {
+            background: linear-gradient(180deg, #3b0764, #1e0533);
+            padding: 50px 20px;
+            border-radius: 40px;
+            margin: 60px 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(251, 146, 60, 0.3);
+        }
+        .game-rates h2 {
+            font-size: 36px;
+            color: #fb923c;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .line {
+            width: 70px;
+            height: 3px;
+            background: #fb923c;
+            margin: 10px auto 35px;
+            border-radius: 10px;
+        }
+        .rate-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .rate-row {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #fb923c;
+            transition: 0.3s;
+        }
+        .rate-row:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(10px);
+        }
+        .game-info {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .game-icon { font-size: 24px; }
+        .game-name { font-weight: 600; font-size: 18px; color: #fff; }
+        .price-info { text-align: right; }
+        .red { color: #ff7a7a; font-weight: bold; font-size: 14px; }
+        .green { color: #22c55e; font-weight: bold; font-size: 20px; }
+        .rate-row.special {
+            background: linear-gradient(90deg, #f59e0b, #ec4899);
+            border-left: 5px solid #fff;
+        }
+        .badge {
+            background: #000;
+            color: #facc15;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 5px;
+            display: block;
+            margin-top: 5px;
+        }
+        @media (max-width: 600px) {
+            .nx-title { font-size: 48px; }
+            .rate-row { flex-direction: column; gap: 5px; text-align: center; }
+            .game-info { flex-direction: column; gap: 2px; text-align: center; }
+            .price-info { text-align: center; }
+            .feature-card { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;NX567 - Download App&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Poppins', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle at top, #0f2a44, #06131f);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body:before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: "";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>inset: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-image: radial-gradient(#ffffff33 1px, transparent 1px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: 40px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: moveBg 20s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes moveBg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { background-position: 0 0; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { background-position: 400px 400px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo-placeholder {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: floatLogo 3s infinite ease-in-out;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes floatLogo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translateY(0) scale(1); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: translateY(-10px) scale(1.1); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nx-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Orbitron', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 72px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 15px 0 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #fbbf24, #22c55e, #38bdf8, #ec4899);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>-webkit-background-clip: text;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: glowMove 3s infinite alternate;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes glowMove {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { text-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { text-shadow: 0 0 35px rgba(236, 72, 153, 0.8); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.apk {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #22c55e, #3b82f6, #ec4899);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: 300% 300%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 35px rgba(34, 197, 94, 0.5);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: gradientMove 4s infinite, pulse 2s infinite;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.apk:hover { transform: scale(1.05); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.features-list {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 40px auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.08);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: smoothFloat 3s infinite ease-in-out;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes smoothFloat {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translateY(0); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: translateY(-8px); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:nth-child(1) { animation-delay: 0s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:nth-child(2) { animation-delay: 0.4s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:nth-child(3) { animation-delay: 0.8s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:nth-child(4) { animation-delay: 1.2s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.15);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: #facc15;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.02);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 35px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.5));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-text b {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #facc15;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-text span {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes gradientMove {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% { background-position: 0% 50%; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>50% { background-position: 100% 50%; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% { background-position: 0% 50%; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes pulse {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.game-rates {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(180deg, #3b0764, #1e0533);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 60px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(251, 146, 60, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.game-rates h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 36px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fb923c;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.line {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 70px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #fb923c;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px auto 35px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.rate-list {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.rate-row {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.06);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 5px solid #fb923c;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.rate-row:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.12);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(10px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.game-info {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.game-icon { font-size: 24px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.game-name { font-weight: 600; font-size: 18px; color: #fff; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.price-info { text-align: right; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.red { color: #ff7a7a; font-weight: bold; font-size: 14px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.green { color: #22c55e; font-weight: bold; font-size: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.rate-row.special {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #f59e0b, #ec4899);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 5px solid #fff;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.badge {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #facc15;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.nx-title { font-size: 48px; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.rate-row { flex-direction: column; gap: 5px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.game-info { flex-direction: column; gap: 2px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.price-info { text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.feature-card { flex-direction: column; text-align: center; gap: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo-placeholder"&gt;<span class="s1">🚀</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="nx-title"&gt;NX567&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:18px; color:#facc15; font-weight:600; margin-top:5px;"&gt;</p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span>दुनिया<span class="s2"> </span>का<span class="s2"> </span>सबसे<span class="s2"> </span>सुरक्षित<span class="s2"> </span>एप्लिकेशन</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:14px; opacity:0.85; margin-top:10px; padding: 0 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Play up to &lt;span style="color:#facc15; font-weight:600;"&gt;Lacs Daily&lt;/span&gt; with NX567 - Safe, Secure &amp; Lightning Fast</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p3"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="NX567.apk" download class="apk"&gt;Download APK&lt;/a&gt;</p>
-<p class="p3"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="features-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="feature-icon"&gt;<span class="s1">🏆</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="feature-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Best Rates&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Highest winning rates in the industry&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="feature-icon"&gt;<span class="s1">🛡️</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="feature-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;100% Safe&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Secure transactions with end-to-end encryption&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="feature-icon"&gt;<span class="s1">⚡</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="feature-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Fast Withdrawals&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Instant transfer to your bank account&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="feature-icon"&gt;<span class="s1">👥</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="feature-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;24/7 Support&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Always available to help you via chat or call&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p3"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="game-rates"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Game Rates&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Best winning rates in the market&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="line"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="rate-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Single Digit&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹100&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Jodi Digit&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹1000&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Single Pana&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹1500&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Double Pana&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹3000&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Triple Pana&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹7000&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">🎲</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Half Sangam&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹15000&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rate-row special"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="game-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-icon"&gt;<span class="s1">👑</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="game-name"&gt;Full Sangam&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="price-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="red"&gt;₹10&lt;/span&gt; <span class="s3">→</span> &lt;span class="green"&gt;₹1,00,000&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="badge"&gt;HIGHEST PAYOUT&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p3"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer style="margin-bottom: 40px; opacity: 0.6; font-size: 12px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>© 2026 NX567. All Rights Reserved.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+    <div class="logo-placeholder">🚀</div>
+    <h1 class="nx-title">NX567</h1>
+    <div style="font-size:18px; color:#facc15; font-weight:600; margin-top:5px;">
+        दुनिया का सबसे सुरक्षित एप्लिकेशन
+    </div>
+    <p style="font-size:14px; opacity:0.85; margin-top:10px; padding: 0 20px;">
+        Play up to <span style="color:#facc15; font-weight:600;">Lacs Daily</span> with NX567 - Safe, Secure & Lightning Fast
+    </p>
+
+    <a href="NX567.apk" download class="apk">Download APK</a>
+
+    <div class="features-list">
+        <div class="feature-card">
+            <span class="feature-icon">🏆</span>
+            <div class="feature-text">
+                <b>Best Rates</b>
+                <span>Highest winning rates in the industry</span>
+            </div>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🛡️</span>
+            <div class="feature-text">
+                <b>100% Safe</b>
+                <span>Secure transactions with end-to-end encryption</span>
+            </div>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-text">
+                <b>Fast Withdrawals</b>
+                <span>Instant transfer to your bank account</span>
+            </div>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">👥</span>
+            <div class="feature-text">
+                <b>24/7 Support</b>
+                <span>Always available to help you via chat or call</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-rates">
+        <h2>Game Rates</h2>
+        <p>Best winning rates in the market</p>
+        <div class="line"></div>
+        <div class="rate-list">
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Single Digit</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹100</span>
+                </div>
+            </div>
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Jodi Digit</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹1000</span>
+                </div>
+            </div>
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Single Pana</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹1500</span>
+                </div>
+            </div>
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Double Pana</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹3000</span>
+                </div>
+            </div>
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Triple Pana</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹7000</span>
+                </div>
+            </div>
+            <div class="rate-row">
+                <div class="game-info">
+                    <span class="game-icon">🎲</span>
+                    <span class="game-name">Half Sangam</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹15000</span>
+                </div>
+            </div>
+            <div class="rate-row special">
+                <div class="game-info">
+                    <span class="game-icon">👑</span>
+                    <span class="game-name">Full Sangam</span>
+                </div>
+                <div class="price-info">
+                    <span class="red">₹10</span> → <span class="green">₹1,00,000</span>
+                    <span class="badge">HIGHEST PAYOUT</span>
+                </div>
