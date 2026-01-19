@@ -9,7 +9,9 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
+            /* Static Background - No Animation */
             background: radial-gradient(circle at top, #0f2a44, #06131f);
+            background-attachment: fixed;
             color: white;
             text-align: center;
             overflow-x: hidden;
@@ -19,14 +21,10 @@
             content: "";
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+            background-image: radial-gradient(#ffffff22 1px, transparent 1px);
             background-size: 40px 40px;
-            animation: moveBg 20s linear infinite;
+            /* Background movement animation removed */
             z-index: -1;
-        }
-        @keyframes moveBg {
-            from { background-position: 0 0; }
-            to { background-position: 400px 400px; }
         }
         .logo-placeholder {
             font-size: 50px;
@@ -39,7 +37,7 @@
         }
         .nx-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 72px;
+            font-size: 110px; /* Increased size as requested */
             letter-spacing: 5px;
             margin: 15px 0 5px;
             background: linear-gradient(90deg, #fbbf24, #22c55e, #38bdf8, #ec4899);
@@ -87,16 +85,7 @@
             gap: 20px;
             text-align: left;
             transition: 0.3s;
-            animation: smoothFloat 3s infinite ease-in-out;
         }
-        @keyframes smoothFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        .feature-card:nth-child(1) { animation-delay: 0s; }
-        .feature-card:nth-child(2) { animation-delay: 0.4s; }
-        .feature-card:nth-child(3) { animation-delay: 0.8s; }
-        .feature-card:nth-child(4) { animation-delay: 1.2s; }
         .feature-card:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: #facc15;
@@ -192,7 +181,7 @@
             margin-top: 5px;
         }
         @media (max-width: 600px) {
-            .nx-title { font-size: 48px; }
+            .nx-title { font-size: 65px; } /* Adjusted for mobile */
             .rate-row { flex-direction: column; gap: 5px; text-align: center; }
             .game-info { flex-direction: column; gap: 2px; text-align: center; }
             .price-info { text-align: center; }
@@ -203,14 +192,15 @@
 <body>
     <div class="logo-placeholder">🚀</div>
     <h1 class="nx-title">NX567</h1>
-    <div style="font-size:18px; color:#facc15; font-weight:600; margin-top:5px;">
+    <div style="font-size:14px; color:#facc15; font-weight:600; margin-top:5px;"> <!-- Reduced size -->
         दुनिया का सबसे सुरक्षित एप्लिकेशन
     </div>
-    <p style="font-size:14px; opacity:0.85; margin-top:10px; padding: 0 20px;">
+    <p style="font-size:12px; opacity:0.85; margin-top:10px; padding: 0 20px;"> <!-- Reduced size -->
         Play up to <span style="color:#facc15; font-weight:600;">Lacs Daily</span> with NX567 - Safe, Secure & Lightning Fast
     </p>
 
-    <a href="NX567.apk" download class="apk">Download APK</a>
+    <!-- Updated APK name to NX567.apk -->
+    <a href="NX567.apk" download="NX567.apk" class="apk">Download APK</a>
 
     <div class="features-list">
         <div class="feature-card">
@@ -311,3 +301,12 @@
                     <span class="red">₹10</span> → <span class="green">₹1,00,000</span>
                     <span class="badge">HIGHEST PAYOUT</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-bottom: 40px; opacity: 0.6; font-size: 12px;">
+        © 2026 NX567. All Rights Reserved.
+    </footer>
+</body>
+</html>
